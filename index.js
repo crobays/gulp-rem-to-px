@@ -18,7 +18,11 @@ var transform = function(file, opts) {
 		temp 	= '',
 		match 	= css.match(regex);
 
-	for (i=0; i < match.length; i++) {
+	if (!match) {
+		return new Buffer('');
+	}
+
+	for (var i=0; i < match.length; i++) {
 
 		temp = temp || css,
 
